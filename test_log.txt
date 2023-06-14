@@ -1,0 +1,20 @@
+|||||||||||||||||
+This test is designed to test a movie with multiple subtitle tracks and the image preview feature in fzf
+Running test 2...
+Running: lobster-testing-version a silent voice -i
+
+
+Test checklist.
+----------------------------------
+1. The video file is playing => passed ✅
+2. The subtitles are being displayed in English => passed ✅
+3. The movie/episode title is being displayed (this can be checked with the toggle keybind Shift+I in mpv) => failed ❌
+4. Image preview in fzf is working => passed ✅
+5. There are several subtitles to choose from (this can be checked by using the keybind Shift+J in mpv) => failed ❌
+
+Comments: comment idk
+
+Checklist for test 2 completed ✅
+---------------------------------
+|||||||||||||||||
+

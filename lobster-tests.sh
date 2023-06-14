@@ -69,6 +69,12 @@ confirm() {
     done
 }
 
+ask_for_upload() {
+    if confirm "Would you like to upload this file to oshi.at for easily sharing it?"; then
+        curl -s "https://oshi.at" -F f=@$test_log_file -F shorturl=1 | sed -nE "s@DL: (.*)@\1@p"
+    fi
+}
+
 press_enter_to_continue() {
     printf "Press enter to continue...\n"
     read -r _useless
@@ -270,9 +276,11 @@ backup "$config_file"
 backup "$histfile"
 if [ -n "$test_number" ]; then
     execute_test "$test_number"
+    ask_for_upload
     exit 0
 fi
 
 for i in 1 2 3 4 5 6 7 8; do
     execute_test "$i"
+    ask_for_upload
 done
