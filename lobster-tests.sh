@@ -16,8 +16,9 @@ fi
 cleanup() {
     mv "/tmp/$(basename "$config_file").bak" "$config_file" 2>/dev/null || true
     mv "/tmp/$(basename "$histfile").bak" "$histfile" 2>/dev/null || true
-    # TODO use keep-testing-version flag
-    rm "$PWD/lobster-testing-version" 2>/dev/null || true
+    if [ "$keep_testing_version" != 1 ]; then
+        rm "$PWD/lobster-testing-version" 2>/dev/null || true
+    fi
 }
 trap cleanup EXIT INT TERM
 
