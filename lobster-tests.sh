@@ -16,6 +16,7 @@ fi
 cleanup() {
     mv "/tmp/$(basename "$config_file").bak" "$config_file" 2>/dev/null || true
     mv "/tmp/$(basename "$histfile").bak" "$histfile" 2>/dev/null || true
+    # TODO use keep-testing-version flag
     rm "$PWD/lobster-testing-version" 2>/dev/null || true
 }
 trap cleanup EXIT INT TERM
@@ -282,5 +283,5 @@ fi
 
 for i in 1 2 3 4 5 6 7 8; do
     execute_test "$i"
-    ask_for_upload
 done
+ask_for_upload
